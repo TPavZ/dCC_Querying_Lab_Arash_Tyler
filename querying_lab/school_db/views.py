@@ -78,7 +78,7 @@ def problem_six(request):
 
     student_courses = Student.objects.filter(gpa__lt=3.0).filter(studentcourse__course__name = "Programming").filter(studentcourse__grade = "A").order_by("gpa")
     #students = Student.objects.filter(gpa__gt=3.0).order_by("-gpa")
-
+    # test test
     context = {
         'students': student_courses
     }
