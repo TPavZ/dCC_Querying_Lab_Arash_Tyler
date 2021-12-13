@@ -10,5 +10,9 @@ urlpatterns = [
     path('three/', views.problem_three, name="three"),
     path('four/', views.problem_four, name="four"),
     path('five/', views.problem_five, name="five"),
-    path('six/', views.problem_six, name="six")
+    path('six/', views.problem_six, name="six"),
+    path("bonus1/", views.bonus_one, name="bonus1"),
+    path("bonus2/", views.bonus_two, name="bonus2"),
+    path("bonus3/", views.bonus_three, name="bonus3"),
+    path("bonus4/", views.bonus_four, name="bonus4")
 ]
