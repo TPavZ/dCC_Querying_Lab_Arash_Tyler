@@ -4,9 +4,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
     <title>Problem Two</title>
 </head>
 <body>
-    <h1>Instructors Hired Before 2010</h1>
+    <div class="center-text">
+        <h1>Instructors Hired Before 2010:</h1>
+        <table class="center-table">
+            <thead>
+                <tr>
+                    <th>First Name</th><th>Last Name</th><th>Hire Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for instructor in instructors %}
+                <tr>
+                    <td>{{instructor.first_name}}</td><td>{{instructor.last_name}}</td><td>{{instructor.hire_date}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>
