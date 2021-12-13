@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Student, Instructor, Course, StudentCourse
+from django.db.models import Count
 
 
 def index(request):
@@ -92,56 +93,48 @@ def problem_six(request):
 
 # Create a view function and template for each bonus problem you complete
 
-# BONUS ONE
-# Write a query to find any instructors who are only teaching one single course. Display the instructor and the course
 
 def bonus_one(request):
-    # Find all students who have a GPA greater than 3.0. 
-    # Order the data by highest GPAs first.
-    students = Student.objects.filter(gpa__gt=3.0).order_by("-gpa")
+    # BONUS ONE
+    # Write a query to find any instructors who are only teaching one single course. Display the instructor and the course
+    instructors = Instructor.objects.all()
+    data_visualization = [item for item in instructors]
 
     context = {
-        'students': students
+        'instructors': instructors
     }
-    return render(request, 'school/one.html', context)
-
-# BONUS TWO
-# Display all students along with the number of credits they are taking
+    return render(request, 'school/bonus1.html', context)
 
 def bonus_two(request):
-    # Find all students who have a GPA greater than 3.0. 
-    # Order the data by highest GPAs first.
+    # BONUS TWO
+    # Display all students along with the number of credits they are taking    
     students = Student.objects.filter(gpa__gt=3.0).order_by("-gpa")
 
     context = {
         'students': students
     }
-    return render(request, 'school/one.html', context)
+    return render(request, 'school/bonus2.html', context)
 
-# BONUS THREE
-# Find all students who are getting an A in any course and average their GPAs. Display the number of students and their Average GPA
 
 def bonus_three(request):
-    # Find all students who have a GPA greater than 3.0. 
-    # Order the data by highest GPAs first.
+    # BONUS THREE
+    # Find all students who are getting an A in any course and average their GPAs. Display the number of students and their Average GPA    
     students = Student.objects.filter(gpa__gt=3.0).order_by("-gpa")
 
     context = {
         'students': students
     }
-    return render(request, 'school/one.html', context)
+    return render(request, 'school/bonus3.html', context)
 
-# BONUS FOUR
-# Write a function that will replace student GPAs in the database with an accurate score based only on their current grades
-# This may require multiple queries
-# See https://www.indeed.com/career-advice/career-development/gpa-scale for a chart of what point value each grade is worth
 
 def bonus_four(request):
-    # Find all students who have a GPA greater than 3.0. 
-    # Order the data by highest GPAs first.
+    # BONUS FOUR
+    # Write a function that will replace student GPAs in the database with an accurate score based only on their current grades
+    # This may require multiple queries
+    # See https://www.indeed.com/career-advice/career-development/gpa-scale for a chart of what point value each grade is worth
     students = Student.objects.filter(gpa__gt=3.0).order_by("-gpa")
 
     context = {
         'students': students
     }
-    return render(request, 'school/one.html', context)
+    return render(request, 'school/bonus4.html', context)
